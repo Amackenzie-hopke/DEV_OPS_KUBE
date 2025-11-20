@@ -10,6 +10,9 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
+    # Remove host port mapping since we'll access through Nginx
+    ports:
+      - "5000:5000"
     environment:
       - MONGO_URI=mongodb://mongo:27017/bank_app
       - SECRET_KEY=supersecretkey
@@ -21,6 +24,8 @@ services:
     environment:
       - MONGO_URI=mongodb://mongo:27017
       - PORT=3000  # Explicitly set port
+    ports:
+      - "3000:3000"  # Expose for debugging
     depends_on:
       - mongo
 
