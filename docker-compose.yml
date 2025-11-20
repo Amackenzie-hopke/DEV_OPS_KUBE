@@ -5,7 +5,6 @@ services:
     restart: always
     volumes:
       - mongo_data:/data/db
-
   backend:
     build:
       context: ./backend
