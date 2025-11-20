@@ -5,9 +5,9 @@ set -euo pipefail
 echo "initilizing github and pulling files"
 rm -rf .git
 git init
-
+git config --global user.name "ADMIN"
 git remote add origin https://github.com/Amackenzie-hopke/DEV_OPS_KUBE || git remote set-url origin https://github.com/Amackenzie-hopke/DEV_OPS_KUBE
-
+git pull origin master
 
 git pull origin main --allow-unrelated-histories || { echo "failed to pull files, exiting."; exit 1; }
 
